@@ -1,0 +1,43 @@
+.LoginModal {
+  .LoginHeader {
+    color: purple;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    i {
+      font-size: x-large;
+      cursor: pointer;
+    }
+  }
+  form {
+    * {
+      margin: 3px 0;
+    }
+    display: flex;
+    flex-direction: column;
+    label {
+      color: rgba(128, 0, 128, 0.904);
+      font-weight: bold;
+    }
+    input {
+      background-color: transparent;
+      border: transparent;
+      border-bottom: 2px solid rgba(128, 0, 128, 0.596);
+      font-size: x-large;
+    }
+    button {
+      margin-top: 10px;
+      height: 50px;
+      background-color: transparent;
+      border: transparent;
+      background-color: rgba(128, 0, 128, 0.904);
+      color: white;
+      font-size: large;
+      border-radius: 25px;
+    }
+  }
+  .goJoin {
+    text-align: right;
+  }
+}

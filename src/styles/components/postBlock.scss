@@ -1,0 +1,66 @@
+.PostBlock {
+  cursor: pointer;
+  width: 20rem;
+  height: 23rem;
+  background: white;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+  margin: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .react-tag-input {
+    border: transparent;
+  }
+  .ImgContainer {
+    height: 12rem;
+    overflow: hidden;
+    .Img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+  }
+  p {
+    margin: 2px 0.5rem;
+  }
+  .Title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .Body {
+    height: 42px;
+  }
+  .Date {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  .Footer {
+    margin: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    .UserInfo {
+      display: flex;
+      align-items: center;
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .UserName {
+        font-weight: bold;
+      }
+    }
+    .Likes {
+      align-items: center;
+      display: flex;
+    }
+  }
+}
+
+.PostBlock:hover .Img {
+  transform: scale(1.1);
+}

@@ -1,0 +1,30 @@
+.UserProfile {
+  width: 1000px;
+  display: flex;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  border-bottom: purple 3px solid;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 3rem;
+  }
+  .UserText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2rem;
+    flex-grow: 1;
+    p {
+      margin: 0;
+    }
+    .Title {
+      font-size: 3rem;
+    }
+    .Description {
+      font-size: 2rem;
+      font-weight: 100;
+    }
+  }
+}

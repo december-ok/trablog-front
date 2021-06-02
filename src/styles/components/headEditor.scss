@@ -1,0 +1,14 @@
+.HeadEditor {
+  display: flex;
+  flex-direction: column;
+  input {
+    margin: 5px 0;
+    background-color: transparent;
+    border: transparent;
+    padding-bottom: 4px;
+  }
+  .Title {
+    font-size: 40px;
+    border-bottom: 2px solid purple;
+  }
+}

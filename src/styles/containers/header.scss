@@ -1,0 +1,47 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  max-width: 1500px;
+  margin: 0 auto;
+  height: 90px;
+  .Title {
+    margin-left: 10px;
+    height: 60px;
+    text {
+      fill: rgb(201, 98, 167);
+    }
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    * {
+      margin-right: 10px;
+    }
+    i {
+      font-size: 25px;
+      cursor: pointer;
+    }
+    a {
+      text-decoration: transparent;
+      color: purple;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    button {
+      border: transparent;
+      background-color: transparent;
+      font-weight: bold;
+      color: purple;
+      font-size: 16px;
+    }
+  }
+}

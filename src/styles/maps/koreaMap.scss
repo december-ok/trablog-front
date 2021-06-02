@@ -1,0 +1,18 @@
+.KoreaMap {
+  width: 400px;
+  height: 675px;
+}
+.land {
+  fill: rgb(130, 190, 90);
+  fill-opacity: 1;
+  stroke: white;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+  cursor: pointer;
+}
+.land:hover {
+  fill: rgb(201, 98, 167);
+}
+.land.active {
+  fill: purple;
+}

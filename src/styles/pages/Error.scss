@@ -1,0 +1,23 @@
+.Error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 100vh;
+  margin: 0 auto;
+  h1 {
+    font-size: 200px;
+    margin: 0;
+  }
+  button {
+    height: 100px;
+    width: 200px;
+    border: transparent;
+    background-color: #c45da1;
+    border-radius: 7px;
+    font-size: 30px;
+    color: purple;
+    cursor: pointer;
+  }
+}

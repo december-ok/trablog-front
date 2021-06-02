@@ -1,0 +1,14 @@
+.HomeSelector {
+  min-width: 450px;
+  position: relative;
+  .mapContainer {
+    margin-top: 404px;
+    margin-left: 25px;
+    height: 0;
+    svg {
+      transform: translate(0, -50%);
+      background-color: #ffe1d6;
+      border-radius: 7px;
+    }
+  }
+}

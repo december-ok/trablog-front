@@ -1,0 +1,14 @@
+.PostContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+  background-color: #ffe1d6;
+  border-radius: 7px;
+  padding: 0.5rem 0;
+  a {
+    text-decoration: transparent;
+    color: black;
+  }
+}

@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import useMe from "./hooks/useMe";
+import Auth from "./pages/Auth";
+import Error from "./pages/Error";
+import Home from "./pages/Home";
+import Logout from "./pages/Logout";
+import Post from "./pages/Post";
+import UserHome from "./pages/UserHome";
+import Write from "./pages/Write";
 
 function App() {
+  useMe();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/write" exact component={Write} />
+          <Route path="/auth" exact component={Auth} />
+          <Route path="/error" component={Error} />
+          <Route path="/logout" exact component={Logout} />
+          <Route path="/:userId" exact component={UserHome} />
+          <Route path="/post/:postId" exact component={Post} />
+          <Route component={Error} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
