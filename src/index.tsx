@@ -18,7 +18,9 @@ export const isLoggedInVar = makeVar(Boolean(token));
 export const authTokenVar = makeVar(token);
 export const loggedInUser = makeVar<Maybe<User>>(undefined);
 
-const httpLink = createHttpLink({ uri: "http://localhost:4000/graphql" });
+const httpLink = createHttpLink({
+  uri: "https://trablog-messi.herokuapp.com/graphql",
+});
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("token");
   return {
