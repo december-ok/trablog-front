@@ -1,0 +1,52 @@
+.RowPostBlock {
+  height: 600px;
+  margin-top: 30px;
+  a {
+    text-decoration: transparent;
+    color: black;
+  }
+  .ImgContainer {
+    height: 350px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+  }
+  .react-tag-input {
+    border: transparent;
+  }
+  h4 {
+    margin: 0;
+  }
+  hr {
+    border: 1px solid purple;
+    margin: 20px 0;
+  }
+  .react-tag-input {
+    margin: 10px 0;
+  }
+  .User {
+    display: flex;
+    align-content: center;
+    * {
+      margin-left: 15px;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    p {
+      font-weight: bold;
+    }
+  }
+}
+
+.RowPostBlock:hover {
+  .ImgContainer img {
+    transform: scale(1.1);
+  }
+}

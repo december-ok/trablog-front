@@ -36,22 +36,27 @@ export default function useLogin(setError: Function, toggleModal: Function) {
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault();
-    const {
-      data: {
-        login: { ok, error, token, user },
-      },
-    } = await loginMutation({
-      variables: { email, password },
-    });
-    if (error) {
-      setError(error);
+    try {
+      const {
+        data: {
+          login: { ok, error, token, user },
+        },
+      } = await loginMutation({
+        variables: { email, password },
+      });
+      if (error) {
+        setError(error);
+        return;
+      } else {
+        localStorage.setItem("token", token);
+        authTokenVar(token);
+        loggedInUser(user);
+        console.log(loggedInUser());
+        toggleModal();
+      }
+    } catch (error) {
+      setError("아이디나 비밀번호가 다릅니다");
       return;
-    } else {
-      localStorage.setItem("token", token);
-      authTokenVar(token);
-      loggedInUser(user);
-      console.log(loggedInUser());
-      toggleModal();
     }
   };
 

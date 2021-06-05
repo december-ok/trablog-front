@@ -2,6 +2,7 @@ import ReactTagInput from "@pathofdev/react-tag-input";
 import { Post, User } from "../../types";
 import { getFormDate } from "./../../hooks/core";
 import { Link } from "react-router-dom";
+import Tags from "../Tags";
 
 export default function HeadPost({
   post: { title, user, createdAt, tags },
@@ -18,7 +19,7 @@ export default function HeadPost({
         </Link>
       </div>
       <p className="date">{getFormDate(createdAt)}</p>
-      <ReactTagInput tags={tags} readOnly={true} onChange={() => {}} />
+      <Tags tags={tags} readOnly={true} onChange={() => {}} />
     </div>
   );
 }

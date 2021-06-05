@@ -25,17 +25,22 @@
   max-width: 1500px;
   margin: 0 auto;
   height: 90px; }
-  .Header .Title {
-    margin-left: 10px;
-    height: 60px; }
-    .Header .Title text {
-      fill: #c962a7; }
+  .Header .Front {
+    display: flex;
+    align-items: center; }
+    .Header .Front .Title {
+      height: 70px; }
+      .Header .Front .Title text {
+        fill: #c962a7; }
+    .Header .Front i {
+      color: black;
+      font-size: 35px; }
   .Header ul {
     display: flex;
     list-style: none;
     align-items: center; }
     .Header ul * {
-      margin-right: 10px; }
+      margin-left: 10px; }
     .Header ul i {
       font-size: 25px;
       cursor: pointer; }
@@ -111,19 +116,19 @@
     color: purple; }
 
 .PostBlock {
-  cursor: pointer;
   width: 20rem;
   height: 23rem;
   background: white;
   border-radius: 4px;
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  margin: 0.5rem;
+  margin: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column; }
   .PostBlock .react-tag-input {
     border: transparent; }
   .PostBlock .ImgContainer {
+    cursor: pointer;
     height: 12rem;
     overflow: hidden; }
     .PostBlock .ImgContainer .Img {
@@ -136,11 +141,18 @@
   .PostBlock .Title {
     font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
     margin-top: 5px; }
   .PostBlock .Body {
+    cursor: pointer;
+    height: 42px; }
+  .PostBlock .highBody {
+    margin-bottom: 38px;
+    cursor: pointer;
     height: 42px; }
   .PostBlock .Date {
     font-size: 0.8rem;
+    cursor: pointer;
     color: gray; }
   .PostBlock .Footer {
     margin: 0.5rem 0.5rem;
@@ -164,17 +176,33 @@
   transform: scale(1.1); }
 
 .PostContainer {
+  width: 1020px;
+  min-height: 675px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 1rem;
-  justify-content: space-around;
+  padding: 5px;
   background-color: #ffe1d6;
-  border-radius: 7px;
-  padding: 0.5rem 0; }
+  border-radius: 7px; }
+  @media (min-width: 1160px) and (max-width: 1499px) {
+    .PostContainer {
+      width: 680px; } }
+  @media (max-width: 1159px) {
+    .PostContainer {
+      width: 340px; } }
   .PostContainer a {
     text-decoration: transparent;
     color: black; }
+
+.PostContainer.Loading {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center; }
+  .PostContainer.Loading .Loading {
+    font-size: 10vh;
+    display: block; }
 
 .UserProfile {
   width: 1000px;
@@ -1221,35 +1249,65 @@
     font-size: 18px; }
   .Post hr {
     border: 1px solid purple;
-    margin-bottom: 40px; }
+    margin: 30px 0; }
+  .Post .Modify {
+    display: flex;
+    flex-direction: row-reverse; }
+    .Post .Modify button {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      background-color: plum;
+      color: purple;
+      padding: 10px;
+      border: transparent; }
+      .Post .Modify button i {
+        margin-right: 5px; }
+      .Post .Modify button p {
+        margin: 0; }
+  .Post .Writer {
+    display: flex; }
+    .Post .Writer img {
+      margin-left: 50px;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      margin-right: 50px; }
+    .Post .Writer .User {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .Post .Writer .User p:first-child {
+        margin: 0;
+        font-weight: bold;
+        font-size: 30px; }
 
 .Write {
   max-width: 1000px;
   margin: 0 auto; }
 
-.BodyPost blockquote {
-  margin: 2rem 0px;
-  border-left: 4px solid purple;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background: #ffe1d6;
-  padding: 1rem 1rem 1rem 2rem;
-  color: #212529; }
-
-.BodyPost p,
-.BodyPost h1,
-.BodyPost h2,
-.BodyPost h3,
-.BodyPost h4,
-.BodyPost h5 {
-  margin: 10px 0;
-  line-height: 1.7; }
-
-.BodyPost .ql-align-center {
-  text-align: center; }
-
-.BodyPost .ql-align-right {
-  text-align: right; }
+.BodyPost {
+  overflow: hidden; }
+  .BodyPost blockquote {
+    margin: 2rem 0px;
+    border-left: 4px solid purple;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #ffe1d6;
+    padding: 1rem 1rem 1rem 2rem;
+    color: #212529; }
+  .BodyPost p,
+  .BodyPost h1,
+  .BodyPost h2,
+  .BodyPost h3,
+  .BodyPost h4,
+  .BodyPost h5 {
+    margin: 10px 0;
+    line-height: 1.7; }
+  .BodyPost .ql-align-center {
+    text-align: center; }
+  .BodyPost .ql-align-right {
+    text-align: right; }
 
 .LoginModal .LoginHeader {
   color: purple;
@@ -1287,6 +1345,89 @@
 .LoginModal .goJoin {
   text-align: right; }
 
+.Search {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px; }
+  .Search .InputContainer {
+    margin: 0 auto;
+    width: 70%;
+    border-bottom: 2px solid purple;
+    border-radius: 5px;
+    color: purple;
+    font-size: x-large; }
+    .Search .InputContainer input {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 50px;
+      margin-top: 20px; }
+  .Search .SearchPostContainer {
+    margin-top: 50px; }
+
+.RowPostBlock {
+  height: 600px;
+  margin-top: 30px; }
+  .RowPostBlock a {
+    text-decoration: transparent;
+    color: black; }
+  .RowPostBlock .ImgContainer {
+    height: 350px;
+    overflow: hidden; }
+    .RowPostBlock .ImgContainer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s; }
+  .RowPostBlock .react-tag-input {
+    border: transparent; }
+  .RowPostBlock h4 {
+    margin: 0; }
+  .RowPostBlock hr {
+    border: 1px solid purple;
+    margin: 20px 0; }
+  .RowPostBlock .react-tag-input {
+    margin: 10px 0; }
+  .RowPostBlock .User {
+    display: flex;
+    align-content: center; }
+    .RowPostBlock .User * {
+      margin-left: 15px; }
+    .RowPostBlock .User img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; }
+    .RowPostBlock .User p {
+      font-weight: bold; }
+
+.RowPostBlock:hover .ImgContainer img {
+  transform: scale(1.1); }
+
+.UserHome {
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.Info {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around; }
+
+.Auth {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .Auth .JoinContainer form {
+    display: flex;
+    flex-direction: column; }
+    .Auth .JoinContainer form img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover; }
+
 body {
   margin: 0 auto;
   background-color: #ffcbb9;
@@ -1294,12 +1435,16 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif; }
 
 img {
-  max-width: 1000px; }
+  max-width: 1000px;
+  object-fit: cover; }
 
 *:focus {
   outline: transparent; }
 
 button {
+  cursor: pointer; }
+
+.react-tag-input__tag {
   cursor: pointer; }
 
 .react-tag-input {

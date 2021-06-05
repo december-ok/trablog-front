@@ -6,11 +6,18 @@
   max-width: 1500px;
   margin: 0 auto;
   height: 90px;
-  .Title {
-    margin-left: 10px;
-    height: 60px;
-    text {
-      fill: rgb(201, 98, 167);
+  .Front {
+    display: flex;
+    align-items: center;
+    .Title {
+      height: 70px;
+      text {
+        fill: rgb(201, 98, 167);
+      }
+    }
+    i {
+      color: black;
+      font-size: 35px;
     }
   }
   ul {
@@ -18,7 +25,7 @@
     list-style: none;
     align-items: center;
     * {
-      margin-right: 10px;
+      margin-left: 10px;
     }
     i {
       font-size: 25px;

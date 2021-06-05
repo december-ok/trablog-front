@@ -1,0 +1,17 @@
+.Auth {
+  max-width: 1000px;
+  margin: 0 auto;
+  .JoinContainer {
+    form {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}

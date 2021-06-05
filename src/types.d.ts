@@ -32,6 +32,8 @@ export type CreateUserInput = {
   email: Scalars['String'];
   password: Scalars['String'];
   nickName: Scalars['String'];
+  avatarImg: Scalars['String'];
+  description: Scalars['String'];
 };
 
 export type CreateUserOutput = {
@@ -40,6 +42,16 @@ export type CreateUserOutput = {
   error?: Maybe<Scalars['String']>;
 };
 
+
+export type DeletePostInput = {
+  id: Scalars['Int'];
+};
+
+export type DeletePostOutput = {
+  __typename?: 'DeletePostOutput';
+  ok: Scalars['Boolean'];
+  error?: Maybe<Scalars['String']>;
+};
 
 export type GetPostInput = {
   id: Scalars['Int'];
@@ -52,8 +64,24 @@ export type GetPostOutput = {
   post?: Maybe<Post>;
 };
 
+export type GetPostsInput = {
+  skipFrom: Scalars['Int'];
+};
+
 export type GetPostsOutput = {
   __typename?: 'GetPostsOutput';
+  ok: Scalars['Boolean'];
+  error?: Maybe<Scalars['String']>;
+  postList?: Maybe<Array<Post>>;
+};
+
+export type GetUserPostsInput = {
+  id: Scalars['Int'];
+  skipFrom: Scalars['Int'];
+};
+
+export type GetUserPostsOutput = {
+  __typename?: 'GetUserPostsOutput';
   ok: Scalars['Boolean'];
   error?: Maybe<Scalars['String']>;
   postList?: Maybe<Array<Post>>;
@@ -94,8 +122,12 @@ export type Mutation = {
   __typename?: 'Mutation';
   createUser: CreateUserOutput;
   login: LoginOutput;
+  getPosts: GetPostsOutput;
+  getUserPosts: GetUserPostsOutput;
   createPost: CreatePostOutput;
   searchPost: SearchPostOutput;
+  tagSearchPost: TagSearchPostOutput;
+  deletePost: DeletePostOutput;
 };
 
 
@@ -109,6 +141,16 @@ export type MutationLoginArgs = {
 };
 
 
+export type MutationGetPostsArgs = {
+  input: GetPostsInput;
+};
+
+
+export type MutationGetUserPostsArgs = {
+  input: GetUserPostsInput;
+};
+
+
 export type MutationCreatePostArgs = {
   input: CreatePostInput;
 };
@@ -116,6 +158,16 @@ export type MutationCreatePostArgs = {
 
 export type MutationSearchPostArgs = {
   input: SearchPostInput;
+};
+
+
+export type MutationTagSearchPostArgs = {
+  input: TagSearchPostInput;
+};
+
+
+export type MutationDeletePostArgs = {
+  input: DeletePostInput;
 };
 
 export type Post = {
@@ -136,7 +188,6 @@ export type Query = {
   __typename?: 'Query';
   getUserProfile: GetUserProfileOutput;
   me: MeOutput;
-  getPosts: GetPostsOutput;
   getPost: GetPostOutput;
 };
 
@@ -152,10 +203,23 @@ export type QueryGetPostArgs = {
 
 export type SearchPostInput = {
   search: Scalars['String'];
+  skipFrom: Scalars['Int'];
 };
 
 export type SearchPostOutput = {
   __typename?: 'SearchPostOutput';
+  ok: Scalars['Boolean'];
+  error?: Maybe<Scalars['String']>;
+  postList?: Maybe<Array<Post>>;
+};
+
+export type TagSearchPostInput = {
+  tag: Scalars['String'];
+  skipFrom: Scalars['Int'];
+};
+
+export type TagSearchPostOutput = {
+  __typename?: 'TagSearchPostOutput';
   ok: Scalars['Boolean'];
   error?: Maybe<Scalars['String']>;
   postList?: Maybe<Array<Post>>;

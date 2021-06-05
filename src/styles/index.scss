@@ -14,6 +14,11 @@
 @import "./pages/Write.scss";
 @import "./components/bodyPost.scss";
 @import "./containers/loginModal.scss";
+@import "./pages/Search.scss";
+@import "./components/rowPostBlock.scss";
+@import "./pages/UserHome.scss";
+@import "./pages/Info.scss";
+@import "./pages/Auth.scss";
 
 body {
   margin: 0 auto;
@@ -27,6 +32,7 @@ body {
 
 img {
   max-width: 1000px;
+  object-fit: cover;
 }
 
 *:focus {
@@ -34,6 +40,10 @@ img {
 }
 
 button {
+  cursor: pointer;
+}
+
+.react-tag-input__tag {
   cursor: pointer;
 }
 

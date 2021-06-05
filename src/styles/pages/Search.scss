@@ -1,0 +1,29 @@
+.Search {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  .InputContainer {
+    margin: 0 auto;
+    width: 70%;
+    border-bottom: 2px solid purple;
+    border-radius: 5px;
+    color: purple;
+    font-size: x-large;
+    input {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 50px;
+      margin-top: 20px;
+    }
+  }
+
+  .SearchPostContainer {
+    margin-top: 50px;
+    .RowPostBlock {
+    }
+  }
+}

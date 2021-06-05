@@ -11,11 +11,21 @@ export default function Header() {
 
   return (
     <nav className="Header">
-      <Link to="/">
-        <Title />
-      </Link>
+      <div className="Front">
+        <Link to="/">
+          <Title />
+        </Link>
+        <Link to="/info">
+          <i className="fab fa-github" />
+        </Link>
+      </div>
       {!loginUser ? (
         <ul>
+          <li>
+            <Link to="/search">
+              <i className="fas fa-search"></i>
+            </Link>
+          </li>
           <li>
             <button onClick={loginModalToggle}>로그인/가입하기</button>
             <LoginModal isOpen={loginModal} toggleModal={loginModalToggle} />
@@ -24,7 +34,9 @@ export default function Header() {
       ) : (
         <ul>
           <li>
-            <i className="fas fa-search"></i>
+            <Link to="/search">
+              <i className="fas fa-search"></i>
+            </Link>
           </li>
           <li>
             <Link to="/write">기록하기</Link>

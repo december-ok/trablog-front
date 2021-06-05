@@ -3,6 +3,10 @@ import Header from "./../containers/Header";
 import UserProfile from "./../components/User/UserProfile";
 import { gql, useQuery } from "@apollo/client";
 import { Redirect } from "react-router";
+import useUserPost from "../hooks/useUserPost";
+import { useEffect, useState } from "react";
+import { Post } from "../types";
+import UserPostContainer from "../containers/UserHome/UserPostContainer";
 
 const GET_USER_INFO = gql`
   query getUserProfile($id: Int!) {
@@ -17,18 +21,6 @@ const GET_USER_INFO = gql`
         nickName
         avatarImg
         description
-        postList {
-          id
-          title
-          createdAt
-          updatedAt
-          title
-          tags
-          thumb
-          body
-          text
-          likes
-        }
       }
     }
   }
@@ -38,18 +30,23 @@ export default function UserHome({ match: { params } }: any) {
   const { loading, data, error } = useQuery(GET_USER_INFO, {
     variables: { id: +params.userId },
   });
+  const userId = +params.userId;
+
   if (error || (data as any)?.getUserProfile?.error) {
     return <Redirect to="/error" />;
   }
   const user = (data as any)?.getUserProfile?.user;
   return (
-    <div className="UserHome">
-      {!loading && (
-        <>
-          <Header />
-          <UserProfile user={user} />
-        </>
-      )}
-    </div>
+    <>
+      <Header />
+      <div className="UserHome">
+        {!loading && (
+          <>
+            <UserProfile user={user} />
+            <UserPostContainer userId={userId} />
+          </>
+        )}
+      </div>
+    </>
   );
 }

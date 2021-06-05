@@ -42,7 +42,6 @@ export default function BodyEditor({
         const file = input.files[0];
         const formData = new FormData();
         formData.append("image", file);
-        console.log(file);
 
         const {
           data: {

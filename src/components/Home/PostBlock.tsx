@@ -1,7 +1,7 @@
-import { Maybe, Post } from "../../types";
+import { Post } from "../../types";
 import { getFormDate } from "./../../hooks/core";
 import { Link } from "react-router-dom";
-import ReactTagInput from "@pathofdev/react-tag-input";
+import Tags from "../Tags";
 
 export default function PostBlock({
   post: {
@@ -13,7 +13,7 @@ export default function PostBlock({
     text,
     tags,
     likes,
-    user: { nickName, avatarImg },
+    user: { nickName, avatarImg, id: userId },
   },
 }: {
   post: Post;
@@ -25,18 +25,20 @@ export default function PostBlock({
           <img className="Img" src={thumb} alt="thumbnail" />
         </div>
         <p className="Title">{title}</p>
-        <ReactTagInput tags={tags} readOnly={true} onChange={() => {}} />
-        <p className="Body">{text.slice(0, 40)}</p>
+      </Link>
+      {Boolean(tags.length) && (
+        <Tags tags={tags} readOnly={true} onChange={() => {}} />
+      )}
+      <Link to={`/post/${id}`}>
+        <p className={tags.length ? "Body" : "highBody"}>{text.slice(0, 37)}</p>
         <p className="Date">{getFormDate(createdAt)}</p>
+      </Link>
+      <Link to={`/${userId}`}>
         <div className="Footer">
           <div className="UserInfo">
             <img src={avatarImg} alt="hi"></img>
             <p className="UserName">{nickName}</p>
           </div>
-          {/* <div className="Likes">
-            <i className="fas fa-thumbs-up"></i>
-            <p className="LikesNumber">{likes}</p>
-          </div> */}
         </div>
       </Link>
     </div>

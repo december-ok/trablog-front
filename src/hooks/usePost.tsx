@@ -17,6 +17,7 @@ const POST_QUERY = gql`
           id
           nickName
           avatarImg
+          description
         }
       }
     }
@@ -24,6 +25,6 @@ const POST_QUERY = gql`
 `;
 
 export default function usePost(id: number) {
-  const { data, loading } = useQuery(POST_QUERY, { variables: { id } });
-  return [data, loading];
+  const { data, loading, error } = useQuery(POST_QUERY, { variables: { id } });
+  return [data, loading, error];
 }

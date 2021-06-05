@@ -1,11 +1,10 @@
 .PostBlock {
-  cursor: pointer;
   width: 20rem;
   height: 23rem;
   background: white;
   border-radius: 4px;
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  margin: 0.5rem;
+  margin: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -13,6 +12,7 @@
     border: transparent;
   }
   .ImgContainer {
+    cursor: pointer;
     height: 12rem;
     overflow: hidden;
     .Img {
@@ -28,13 +28,21 @@
   .Title {
     font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
     margin-top: 5px;
   }
   .Body {
+    cursor: pointer;
+    height: 42px;
+  }
+  .highBody {
+    margin-bottom: 38px;
+    cursor: pointer;
     height: 42px;
   }
   .Date {
     font-size: 0.8rem;
+    cursor: pointer;
     color: gray;
   }
   .Footer {
