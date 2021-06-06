@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trablog-front/static/css/main.2f2c556e.chunk.css",
-    "main.js": "/trablog-front/static/js/main.b7484680.chunk.js",
+    "main.js": "/trablog-front/static/js/main.bbc81866.chunk.js",
     "runtime-main.js": "/trablog-front/static/js/runtime-main.4a4c169a.js",
     "static/js/2.e5c547fe.chunk.js": "/trablog-front/static/js/2.e5c547fe.chunk.js",
     "index.html": "/trablog-front/index.html",
@@ -12,6 +12,6 @@
     "static/js/runtime-main.4a4c169a.js",
     "static/js/2.e5c547fe.chunk.js",
     "static/css/main.2f2c556e.chunk.css",
-    "static/js/main.b7484680.chunk.js"
+    "static/js/main.bbc81866.chunk.js"
   ]
 }
