@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef } from "react";
 import ReactQuill from "react-quill";
+import { screenLoading } from "../..";
 
 interface BodyEditorProps {
   data: { body: string };
@@ -43,6 +44,7 @@ export default function BodyEditor({
         const formData = new FormData();
         formData.append("image", file);
 
+        screenLoading(true);
         const {
           data: {
             data: {
@@ -58,6 +60,7 @@ export default function BodyEditor({
         quill.current
           ?.getEditor()
           .insertEmbed(range?.index as number, "image", url);
+        screenLoading(false);
       }
     };
   };
@@ -92,7 +95,6 @@ export default function BodyEditor({
           quill.current = e;
         }}
       />
-      {JSON.stringify(body)}
     </>
   );
 }

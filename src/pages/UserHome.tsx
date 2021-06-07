@@ -1,11 +1,7 @@
-import { RouteComponentProps } from "react-router-dom";
 import Header from "./../containers/Header";
 import UserProfile from "./../components/User/UserProfile";
 import { gql, useQuery } from "@apollo/client";
 import { Redirect } from "react-router";
-import useUserPost from "../hooks/useUserPost";
-import { useEffect, useState } from "react";
-import { Post } from "../types";
 import UserPostContainer from "../containers/UserHome/UserPostContainer";
 
 const GET_USER_INFO = gql`

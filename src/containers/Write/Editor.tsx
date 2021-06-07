@@ -29,7 +29,9 @@ export default function Editor() {
         onTextChange={onTextChange}
         onThumbSet={onThumbSet}
       />
-      <button onClick={uploadPost}>기록하기</button>
+      <button className="Button" onClick={uploadPost}>
+        기록하기
+      </button>
     </div>
   );
 }

@@ -6,6 +6,7 @@ const TAG_SEARCH_POSTS = gql`
     tagSearchPost(input: { tag: $tag, skipFrom: $skipFrom }) {
       ok
       error
+      searchTerm
       postList {
         id
         title

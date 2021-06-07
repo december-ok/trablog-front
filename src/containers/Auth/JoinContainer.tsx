@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import { Redirect } from "react-router-dom";
+import { screenLoading } from "../..";
 import useCreateUser from "../../hooks/useCreateUser";
 import useInput from "../../hooks/useInput";
 
@@ -37,13 +38,6 @@ export default function JoinContainer() {
       setImgSrc(url);
     }
   };
-  console.log({
-    email,
-    password,
-    nickName,
-    avatarImg: imgSrc,
-    description,
-  });
 
   const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -51,25 +45,32 @@ export default function JoinContainer() {
       alert("비밀번호를 확인해주세요 다릅니다.");
       return;
     }
-    const { data, errors } = await createUser({
-      email,
-      password,
-      nickName,
-      avatarImg: imgSrc,
-      description,
-    });
-    if (errors) {
+    try {
+      screenLoading(true);
+      const { data, errors } = await createUser({
+        email,
+        password,
+        nickName,
+        avatarImg: imgSrc,
+        description,
+      });
+      if (errors) {
+        alert("형식에 맞지 않습니다");
+        return;
+      }
+      if (data?.createUser) {
+        const { ok, error } = data.createUser;
+        if (ok) {
+          alert("회원가입 되었습니다. 로그인을 하실 수 있습니다.");
+          setGoMain(true);
+        } else {
+          alert(error);
+        }
+      }
+    } catch (error) {
+      screenLoading(false);
       alert("형식에 맞지 않습니다");
       return;
-    }
-    if (data?.createUser) {
-      const { ok, error } = data.createUser;
-      if (ok) {
-        alert("회원가입 되었습니다. 로그인을 하실 수 있습니다.");
-        setGoMain(true);
-      } else {
-        alert(error);
-      }
     }
   };
 

@@ -5,7 +5,9 @@
     form {
       display: flex;
       flex-direction: column;
-
+      input {
+        font-size: 20px;
+      }
       img {
         height: 100px;
         width: 100px;

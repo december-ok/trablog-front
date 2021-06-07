@@ -4,35 +4,43 @@ import useGetPosts from "../../hooks/useGetPosts";
 import useObserver from "../../hooks/useObserver";
 import { Post } from "../../types";
 import useTagSearch from "./../../hooks/useTagSearch";
-interface PostContainerProps {
-  location: string;
-  menu: number;
-}
+import { useReactiveVar } from "@apollo/client";
+import { homeMenu, screenLoading } from "../..";
 
-export default function PostContainer({ location, menu }: PostContainerProps) {
+export default function PostContainer() {
   const [getPosts] = useGetPosts();
+  const homeMenuValue = useReactiveVar(homeMenu);
   const [tagSearchPosts] = useTagSearch();
   const [posts, setPosts] = useState<Post[]>([]);
   const [initLoading, setInitLoading] = useState<boolean>(true);
+  const [end, setEnd] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [targetElement, setObserver, unsetObserver] = useObserver(() => {
     setLoading(true);
   });
 
   useEffect(() => {
-    let data;
+    const { menu, location } = homeMenuValue;
+    setEnd(false);
+    screenLoading(false);
+    setLoading(false);
     (async () => {
-      if (menu !== 0 && location !== "") {
+      let data;
+      if (menu === 1) {
         data = await tagSearchPosts(location, 0);
         if (data.data?.tagSearchPost) {
-          const { postList } = data.data?.tagSearchPost;
-          setPosts(postList as Post[]);
+          const { postList, searchTerm } = data.data?.tagSearchPost;
+          if (menu === 1 && searchTerm === location) {
+            setPosts(postList as Post[]);
+          }
         }
       } else {
         data = await getPosts(0);
         if (data.data?.getPosts) {
           const { postList } = data.data?.getPosts;
-          setPosts(postList as Post[]);
+          if (!menu) {
+            setPosts(postList as Post[]);
+          }
         }
       }
 
@@ -40,28 +48,44 @@ export default function PostContainer({ location, menu }: PostContainerProps) {
       setObserver();
     })();
     return () => {
-      setInitLoading(true);
       unsetObserver();
+      setPosts([]);
+      setInitLoading(true);
     };
     // eslint-disable-next-line
-  }, [location, menu]);
+  }, [homeMenuValue]);
 
   useEffect(() => {
-    if (loading) {
+    if (loading && !end) {
+      const { menu, location } = homeMenuValue;
       (async () => {
         let data;
-        if (menu !== 0 && location !== "") {
-          data = await tagSearchPosts(location, posts.length);
-          if (data.data?.tagSearchPost) {
-            const { postList } = data.data?.tagSearchPost;
-            setPosts(posts.concat(postList as Post[]));
+        if (posts.length >= 9) {
+          screenLoading(true);
+          if (menu !== 0) {
+            data = await tagSearchPosts(location, posts.length);
+            if (data.data?.tagSearchPost) {
+              const { postList, searchTerm } = data.data?.tagSearchPost;
+              if (menu !== 0 && searchTerm === location) {
+                if ((postList as Post[]).length < 9) {
+                  setEnd(true);
+                }
+                setPosts(posts.concat(postList as Post[]));
+              }
+            }
+          } else {
+            data = await getPosts(posts.length);
+            if (data.data?.getPosts) {
+              const { postList } = data.data?.getPosts;
+              if (!menu) {
+                if ((postList as Post[]).length < 9) {
+                  setEnd(true);
+                }
+                setPosts(posts.concat(postList as Post[]));
+              }
+            }
           }
-        } else {
-          data = await getPosts(posts.length);
-          if (data.data?.getPosts) {
-            const { postList } = data.data?.getPosts;
-            setPosts(posts.concat(postList as Post[]));
-          }
+          screenLoading(false);
         }
         setLoading((loading) => !loading);
       })();
@@ -71,14 +95,12 @@ export default function PostContainer({ location, menu }: PostContainerProps) {
   return (
     <>
       {!initLoading ? (
-        <>
-          <div className="PostContainer">
-            {posts.map((post: Post) => (
-              <PostBlock post={post} key={post.id} />
-            ))}
-            {!Boolean(posts.length) && <h1>포스트가 없어요...ㅠㅠ</h1>}
-          </div>
-        </>
+        <div className="PostContainer">
+          {posts.map((post: Post) => (
+            <PostBlock post={post} key={post.id} />
+          ))}
+          {!Boolean(posts.length) && <h1>포스트가 없어요...ㅠㅠ</h1>}
+        </div>
       ) : (
         <div className="PostContainer Loading">
           <div className="Loading">
@@ -86,7 +108,7 @@ export default function PostContainer({ location, menu }: PostContainerProps) {
           </div>
         </div>
       )}
-      <div ref={targetElement} />
+      <div className="loadObserver" ref={targetElement} />
     </>
   );
 }

@@ -1285,6 +1285,16 @@
 .Write {
   max-width: 1000px;
   margin: 0 auto; }
+  .Write .Button {
+    margin: 20px 0;
+    float: right;
+    background: purple;
+    border-radius: 7px;
+    border: transparent;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-size: large; }
 
 .BodyPost {
   overflow: hidden; }
@@ -1422,6 +1432,8 @@
   .Auth .JoinContainer form {
     display: flex;
     flex-direction: column; }
+    .Auth .JoinContainer form input {
+      font-size: 20px; }
     .Auth .JoinContainer form img {
       height: 100px;
       width: 100px;
@@ -1433,6 +1445,15 @@ body {
   background-color: #ffcbb9;
   max-width: 1500px;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif; }
+
+.screen {
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.678);
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 img {
   max-width: 1000px;

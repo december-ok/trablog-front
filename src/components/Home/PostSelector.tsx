@@ -1,20 +1,19 @@
+import { useReactiveVar } from "@apollo/client";
 import classNames from "classnames";
-interface PostSelectorProps {
-  location: string;
-  menu: number;
-  setMenu: Function;
-}
+import { homeMenu } from "../..";
 
-export default function PostSelector({
-  location,
-  menu,
-  setMenu,
-}: PostSelectorProps) {
+export default function PostSelector() {
+  const { location, menu } = useReactiveVar(homeMenu);
+
   const setTotal = () => {
-    setMenu(0);
+    if (menu !== 0) {
+      homeMenu({ location, menu: 0 });
+    }
   };
   const setLocal = () => {
-    setMenu(1);
+    if (menu !== 1) {
+      homeMenu({ location, menu: 1 });
+    }
   };
   return (
     <div className="PostSelector">

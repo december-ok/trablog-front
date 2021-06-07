@@ -1,31 +1,21 @@
 import classNames from "classnames";
 import { useEffect, useRef } from "react";
 import ReactTooltip from "react-tooltip";
+import { homeMenu } from "..";
+import { useReactiveVar } from "@apollo/client";
 
-interface HomeMapProps {
-  location: string;
-  setLocation: Function;
-  menu: number;
-  setMenu: Function;
-}
-
-export default function HomeMap({
-  location,
-  setLocation,
-  menu,
-  setMenu,
-}: HomeMapProps) {
+export default function HomeMap() {
   const mapG = useRef<SVGSVGElement>(null);
+  const { location, menu } = useReactiveVar(homeMenu);
 
   useEffect(() => {
     const paths = mapG.current?.childNodes;
     paths?.forEach((e: any) => {
       e.onclick = function () {
-        setLocation(e.dataset.tip);
-        setMenu(1);
+        homeMenu({ location: e.dataset.tip, menu: 1 });
       };
     });
-  }, [setLocation, setMenu]);
+  }, []);
   return (
     <div className="mapContainer">
       <svg

@@ -1,4 +1,15 @@
 .Write {
   max-width: 1000px;
   margin: 0 auto;
+  .Button {
+    margin: 20px 0;
+    float: right;
+    background: purple;
+    border-radius: 7px;
+    border: transparent;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-size: large;
+  }
 }

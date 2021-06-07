@@ -15,10 +15,8 @@ export default function SearchPostContainer({
           <strong>{query}</strong>에 대한 검색 결과
         </>
       )}
-      {posts.map((e: Post) => (
-        <RowPostBlock post={e} key={e.id} />
-      ))}
-      {/* {JSON.stringify(posts)} */}
+      {query !== "" &&
+        posts.map((e: Post) => <RowPostBlock post={e} key={e.id} />)}
     </div>
   );
 }

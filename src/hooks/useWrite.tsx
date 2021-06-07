@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
+import { screenLoading } from "..";
 
 const initBody = `<h1><span style="color: rgb(136, 136, 136);">기록을 작성해보세요!</span></h1>`;
 
@@ -47,10 +48,11 @@ export default function useWrite() {
     setText(newText);
   };
   const onThumbSet = (url: string) => {
-    if (!thumb) setThumb(url);
+    setThumb(url);
   };
   const uploadPost = async () => {
     try {
+      screenLoading(true);
       const {
         data: {
           createPost: { ok, post },
@@ -59,6 +61,7 @@ export default function useWrite() {
       } = await createPost({
         variables: { createPostInput: { title, tags, thumb, body, text } },
       });
+      screenLoading(false);
       setNewPost([post.user.id, post.id]);
     } catch (error) {
       alert("제목과 본문을 작성하세요.");

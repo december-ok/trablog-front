@@ -223,6 +223,7 @@ export type TagSearchPostOutput = {
   ok: Scalars['Boolean'];
   error?: Maybe<Scalars['String']>;
   postList?: Maybe<Array<Post>>;
+  searchTerm?: Maybe<Scalars['String']>;
 };
 
 export type User = {

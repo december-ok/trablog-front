@@ -51,7 +51,6 @@ export default function useLogin(setError: Function, toggleModal: Function) {
         localStorage.setItem("token", token);
         authTokenVar(token);
         loggedInUser(user);
-        console.log(loggedInUser());
         toggleModal();
       }
     } catch (error) {

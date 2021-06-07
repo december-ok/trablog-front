@@ -9,9 +9,12 @@ import Post from "./pages/Post";
 import Search from "./pages/Search";
 import UserHome from "./pages/UserHome";
 import Write from "./pages/Write";
+import { screenLoading } from "./index";
+import { useReactiveVar } from "@apollo/client";
 
 function App() {
   useMe();
+  const screenLoadingValue = useReactiveVar(screenLoading);
   return (
     <Router>
       <div className="App">
@@ -28,6 +31,7 @@ function App() {
           <Route component={Error} />
         </Switch>
       </div>
+      {screenLoadingValue && <div className="screen" />}
     </Router>
   );
 }

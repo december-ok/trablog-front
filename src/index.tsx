@@ -17,8 +17,15 @@ const token = localStorage.getItem("token");
 export const isLoggedInVar = makeVar(Boolean(token));
 export const authTokenVar = makeVar(token);
 export const loggedInUser = makeVar<Maybe<User>>(undefined);
+interface homeMenuType {
+  menu: number;
+  location: string;
+}
+export const homeMenu = makeVar<homeMenuType>({ menu: 0, location: "서울" });
+export const screenLoading = makeVar<boolean>(false);
 
 const httpLink = createHttpLink({
+  // uri: "http://localhost:4000/graphql",
   uri: "https://trablog-messi.herokuapp.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
@@ -33,9 +40,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache({
-    typePolicies: {},
-  }),
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
