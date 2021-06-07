@@ -9,7 +9,6 @@ import { debounce } from "throttle-debounce";
 import { Post } from "../types";
 import useObserver from "../hooks/useObserver";
 import { screenLoading } from "..";
-import { useReactiveVar } from "@apollo/client";
 
 export default function Search({ history, location }: RouteComponentProps) {
   const [query, setQuery] = useState<string>("");
@@ -23,6 +22,7 @@ export default function Search({ history, location }: RouteComponentProps) {
 
   const debouncedSearch = useMemo(() => {
     return debounce(300, async (term: string) => {
+      history.replace(`/search?query=${term}`);
       const { data } = await searchPosts(term, 0);
       const payload = data?.searchPost;
       if (payload && payload.postList) {
@@ -36,15 +36,14 @@ export default function Search({ history, location }: RouteComponentProps) {
   }, []);
 
   useEffect(() => {
-    const queryValue = qs.parse(location.search)["?query"] as string;
-    setQuery(queryValue || "");
+    const queryValue = (qs.parse(location.search)["?query"] as string) || "";
+    setQuery(queryValue);
   }, [location.search]);
 
   useEffect(() => {
     setEnd(false);
     screenLoading(false);
     setLoading(false);
-    history.replace(`/search?query=${query}`);
     debouncedSearch(query);
     return () => {
       unsetObserver();
@@ -52,7 +51,6 @@ export default function Search({ history, location }: RouteComponentProps) {
     // eslint-disable-next-line
   }, [query]);
 
-  console.log(loading, end, useReactiveVar(screenLoading));
   useEffect(() => {
     if (loading && !end) {
       (async () => {
