@@ -24,7 +24,7 @@ export default function PostBlock({
         <div className="ImgContainer">
           <img className="Img" src={thumb} alt="thumbnail" />
         </div>
-        <p className="Title">{title}</p>
+        <p className="Title">{title.slice(0, 15)}</p>
       </Link>
       {Boolean(tags.length) && (
         <Tags tags={tags} readOnly={true} onChange={() => {}} />

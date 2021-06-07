@@ -39,7 +39,7 @@ export default function useLogin(setError: Function, toggleModal: Function) {
     try {
       const {
         data: {
-          login: { ok, error, token, user },
+          login: { error, token, user },
         },
       } = await loginMutation({
         variables: { email, password },

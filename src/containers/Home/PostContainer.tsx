@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import PostBlock from "../../components/Home/PostBlock";
 import useGetPosts from "../../hooks/useGetPosts";
 import useObserver from "../../hooks/useObserver";
@@ -90,6 +90,7 @@ export default function PostContainer() {
         setLoading((loading) => !loading);
       })();
     }
+    // eslint-disable-next-line
   }, [loading]);
 
   return (

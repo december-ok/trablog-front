@@ -22,7 +22,7 @@ export default function HeadEditor({
           editable={false}
           readOnly={false}
           removeOnBackspace={true}
-          placeholder="지역을 입력후 엔터를 눌러주세요 예시: 서울"
+          placeholder="태그 : 지역을 입력후 엔터를 눌러주세요 예시: 서울"
         />
       </div>
     </div>

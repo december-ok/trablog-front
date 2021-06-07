@@ -55,9 +55,8 @@ export default function useWrite() {
       screenLoading(true);
       const {
         data: {
-          createPost: { ok, post },
+          createPost: { post },
         },
-        errors,
       } = await createPost({
         variables: { createPostInput: { title, tags, thumb, body, text } },
       });
@@ -65,6 +64,7 @@ export default function useWrite() {
       setNewPost([post.user.id, post.id]);
     } catch (error) {
       alert("제목과 본문을 작성하세요.");
+      screenLoading(false);
     }
   };
 

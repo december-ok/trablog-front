@@ -32,12 +32,13 @@ export default function Search({ history, location }: RouteComponentProps) {
         }
       }
     });
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     const queryValue = qs.parse(location.search)["?query"] as string;
     setQuery(queryValue || "");
-  }, []);
+  }, [location.search]);
 
   useEffect(() => {
     setEnd(false);
@@ -48,6 +49,7 @@ export default function Search({ history, location }: RouteComponentProps) {
     return () => {
       unsetObserver();
     };
+    // eslint-disable-next-line
   }, [query]);
 
   console.log(loading, end, useReactiveVar(screenLoading));
@@ -69,6 +71,7 @@ export default function Search({ history, location }: RouteComponentProps) {
         setLoading((loading) => !loading);
       })();
     }
+    // eslint-disable-next-line
   }, [loading]);
   return (
     <>

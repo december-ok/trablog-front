@@ -20,7 +20,7 @@ export default function Post({ match: { params } }: any) {
     return <Redirect to="/error" />;
   }
   const {
-    getPost: { ok, error, post },
+    getPost: { error, post },
   }: any = data;
   if (error) {
     return <Redirect to="/error" />;

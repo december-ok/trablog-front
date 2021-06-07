@@ -31,6 +31,7 @@ export default function UserPostContainer({ userId }: { userId: number }) {
     return () => {
       unsetObserver();
     };
+    // eslint-disable-next-line
   }, [userId]);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function UserPostContainer({ userId }: { userId: number }) {
         setLoading((loading) => !loading);
       })();
     }
+    // eslint-disable-next-line
   }, [loading]);
 
   return (

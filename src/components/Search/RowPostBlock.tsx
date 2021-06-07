@@ -7,7 +7,7 @@ export default function RowPostBlock({ post }: { post: Post }) {
     <div className="RowPostBlock">
       <Link to={`/post/${post.id}`}>
         <div className="ImgContainer">
-          <img src={post.thumb} />
+          <img src={post.thumb} alt="PostThumb" />
         </div>
         <h1>{post.title}</h1>
         <p>{post.text.slice(0, 140)}</p>
@@ -15,7 +15,7 @@ export default function RowPostBlock({ post }: { post: Post }) {
       <Tags tags={post.tags} readOnly={true} onChange={() => {}} />
       <Link to={`/${post.user.id}`}>
         <div className="User">
-          <img src={post.user.avatarImg} />
+          <img src={post.user.avatarImg} alt="UserImg" />
           <p>{post.user.nickName}</p>
         </div>
       </Link>

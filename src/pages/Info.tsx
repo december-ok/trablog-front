@@ -37,6 +37,13 @@ export default function Info() {
             <li>SCSS</li>
           </ul>
         </div>
+        <div className="Velog">
+          <h1>
+            <a href="https://velog.io/@decemberok/series/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8Trablog">
+              Velog
+            </a>
+          </h1>
+        </div>
       </div>
     </>
   );

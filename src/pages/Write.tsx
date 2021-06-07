@@ -1,6 +1,5 @@
 import { useReactiveVar } from "@apollo/client";
-import { ComponentProps } from "react";
-import { Redirect, RouteComponentProps } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { loggedInUser } from "..";
 import Header from "./../containers/Header";
 import Editor from "./../containers/Write/Editor";

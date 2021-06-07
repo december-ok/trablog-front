@@ -20,6 +20,7 @@ export default function Tags(props: TagsProps) {
         };
       });
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

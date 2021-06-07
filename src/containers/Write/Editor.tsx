@@ -1,4 +1,4 @@
-import { Redirect, RouteComponentProps } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import BodyEditor from "../../components/Write/BodyEditor";
 import useWrite from "../../hooks/useWrite";
 import HeadEditor from "./../../components/Write/HeadEditor";

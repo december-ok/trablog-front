@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { Post, SearchPostOutput } from "../types";
+import { SearchPostOutput } from "../types";
 
 const SEARCH_POSTS = gql`
   mutation searchPost($search: String!, $skipFrom: Int!) {

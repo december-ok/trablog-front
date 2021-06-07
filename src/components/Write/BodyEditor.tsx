@@ -23,12 +23,14 @@ export default function BodyEditor({
       ?.getEditor()
       .getModule("toolbar")
       .addHandler("image", imageUpload);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     onTextChange(
       quill.current?.getEditor().getText().replace(/\r\n/g, "").trim()
     );
+    // eslint-disable-next-line
   }, [body]);
 
   const imageUpload = () => {

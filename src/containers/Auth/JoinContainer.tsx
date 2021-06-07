@@ -83,17 +83,17 @@ export default function JoinContainer() {
       <form onSubmit={onSubmit}>
         <label>이메일</label>
         <input type="email" value={email} onChange={onEmailChange} />
-        <label>비밀번호</label>
+        <label>비밀번호(최소 4자리)</label>
         <input type="password" value={password} onChange={onPasswordChange} />
-        <label>비밀번호 확인</label>
+        <label>비밀번호 확인(최소 4자리)</label>
         <input type="password" value={password1} onChange={onPassword1Change} />
-        <label>닉네임</label>
+        <label>닉네임(최소 2자리)</label>
         <input type="text" value={nickName} onChange={onNickNameChange} />
-        <label>설명</label>
+        <label>본인 설명</label>
         <input type="text" value={description} onChange={ondescription} />
 
         <label>프로필 이미지</label>
-        <img src={imgSrc} />
+        <img src={imgSrc} alt="UserImg" />
         <input type="file" accept="image/*" onChange={onImgChange} />
         <button type="submit">회원가입</button>
       </form>

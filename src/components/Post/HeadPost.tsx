@@ -1,5 +1,4 @@
-import ReactTagInput from "@pathofdev/react-tag-input";
-import { Post, User } from "../../types";
+import { Post } from "../../types";
 import { getFormDate } from "./../../hooks/core";
 import { Link } from "react-router-dom";
 import Tags from "../Tags";
