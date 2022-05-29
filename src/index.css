@@ -137,7 +137,10 @@
       object-fit: cover;
       transition: all 0.3s; }
   .PostBlock p {
-    margin: 2px 0.5rem; }
+    margin: 2px 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2; }
   .PostBlock .Title {
     font-size: 1.1rem;
     font-weight: bold;
