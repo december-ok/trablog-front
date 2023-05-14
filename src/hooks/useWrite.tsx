@@ -2,7 +2,8 @@ import { gql, useMutation } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
 import { screenLoading } from "..";
 
-const initBody = `<h1><span style="color: rgb(136, 136, 136);">기록을 작성해보세요!</span></h1>`;
+// const initBody = ``;
+const initBody = `<span style="color: #000000;">기록을 작성해보세요!</span>`;
 
 const CREATE_POST = gql`
   mutation createPost($createPostInput: CreatePostInput!) {

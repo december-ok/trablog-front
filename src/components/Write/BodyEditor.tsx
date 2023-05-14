@@ -93,6 +93,7 @@ export default function BodyEditor({
         value={body}
         onChange={onBodyChange as React.Dispatch<string>}
         modules={modules}
+        placeholder="내용을 입력하세요..."
         ref={(e) => {
           quill.current = e;
         }}

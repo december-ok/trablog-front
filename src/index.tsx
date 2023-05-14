@@ -26,7 +26,7 @@ export const screenLoading = makeVar<boolean>(false);
 
 const httpLink = createHttpLink({
   // uri: "http://localhost:4000/graphql",
-  uri: "https://trablog-messi.herokuapp.com/graphql",
+  uri: "https://blog-api.goodpose.shop/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("token");
