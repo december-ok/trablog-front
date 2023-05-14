@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/trablog-front/static/css/main.31b7e5fb.chunk.css",
-    "main.js": "/trablog-front/static/js/main.b45a7820.chunk.js",
-    "runtime-main.js": "/trablog-front/static/js/runtime-main.4a4c169a.js",
-    "static/js/2.e5c547fe.chunk.js": "/trablog-front/static/js/2.e5c547fe.chunk.js",
+    "main.css": "/trablog-front/static/css/main.8f384ee3.chunk.css",
+    "main.js": "/trablog-front/static/js/main.2c779750.chunk.js",
+    "runtime-main.js": "/trablog-front/static/js/runtime-main.81101945.js",
+    "static/js/2.69dd6e58.chunk.js": "/trablog-front/static/js/2.69dd6e58.chunk.js",
     "index.html": "/trablog-front/index.html",
-    "static/js/2.e5c547fe.chunk.js.LICENSE.txt": "/trablog-front/static/js/2.e5c547fe.chunk.js.LICENSE.txt",
+    "static/js/2.69dd6e58.chunk.js.LICENSE.txt": "/trablog-front/static/js/2.69dd6e58.chunk.js.LICENSE.txt",
     "static/media/travelog.741056f3.svg": "/trablog-front/static/media/travelog.741056f3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4a4c169a.js",
-    "static/js/2.e5c547fe.chunk.js",
-    "static/css/main.31b7e5fb.chunk.css",
-    "static/js/main.b45a7820.chunk.js"
+    "static/js/runtime-main.81101945.js",
+    "static/js/2.69dd6e58.chunk.js",
+    "static/css/main.8f384ee3.chunk.css",
+    "static/js/main.2c779750.chunk.js"
   ]
 }
